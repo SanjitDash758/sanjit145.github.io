@@ -1,5 +1,5 @@
 "use client";
-
+import type { CSSProperties } from "react";
 export default function SystemVisualization() {
   return (
     <div className="w-full max-w-lg [perspective:1200px]">
@@ -26,50 +26,70 @@ export default function SystemVisualization() {
           </div>
         </div>
 
-        {/* Request */}
+        {/* System Flow */}
         <div className="flex flex-col items-center">
-          <SystemNode label="REQUEST" description="Incoming operation" />
+          <SystemNode
+            label="REQUEST"
+            description="Incoming operation"
+            delay="0ms"
+            activeDelay="0ms"
+          />
 
-          <Connector />
+          <Connector delay="700ms" />
 
-          {/* FastAPI */}
-          <SystemNode label="FASTAPI" description="API layer" highlighted />
+          <SystemNode
+            label="FASTAPI"
+            description="API layer"
+            highlighted
+            delay="900ms"
+            activeDelay="900ms"
+          />
 
-          <Connector />
+          <Connector delay="1600ms" />
 
-          {/* Database / Agent */}
           <div className="grid w-full grid-cols-2 gap-3">
-            <SystemNode label="DATABASE" description="Persistent state" />
+            <SystemNode
+              label="DATABASE"
+              description="Persistent state"
+              delay="1800ms"
+              activeDelay="1800ms"
+            />
 
             <SystemNode
               label="AGENT"
               description="Reason + tools"
               highlighted
+              delay="2100ms"
+              activeDelay="2100ms"
             />
           </div>
 
-          {/* Agent path */}
           <div className="flex w-full justify-end">
             <div className="mr-[25%] h-7 w-px bg-zinc-800" />
           </div>
 
-          <SystemNode label="TOOLS" description="External capabilities" />
+          <SystemNode
+            label="TOOLS"
+            description="External capabilities"
+            delay="2600ms"
+            activeDelay="2600ms"
+          />
 
-          <Connector />
+          <Connector delay="3200ms" />
 
           <SystemNode
             label="AUTOMATION"
             description="Execute + act"
             highlighted
+            delay="3400ms"
+            activeDelay="3400ms"
           />
         </div>
 
-        {/* Animated system signal */}
         {/* Animated system packets */}
+        {/* Animated system signal */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
-          <span className="system-packet system-packet-one" />
-          <span className="system-packet system-packet-two" />
-          <span className="system-packet system-packet-three" />
+          <span className="system-signal" />
         </div>
       </div>
     </div>
@@ -80,17 +100,27 @@ function SystemNode({
   label,
   description,
   highlighted = false,
+  delay,
+  activeDelay,
 }: {
   label: string;
   description: string;
   highlighted?: boolean;
+  delay: string;
+  activeDelay: string;
 }) {
   return (
     <div
-      className={`relative z-10 w-full rounded-xl border px-4 py-3 transition-all duration-500 hover:-translate-y-0.5 ${
+      style={
+        {
+          animationDelay: delay,
+          "--active-delay": activeDelay ?? "0ms",
+        } as CSSProperties
+      }
+      className={`system-node relative z-10 w-full rounded-xl border px-4 py-3 ${
         highlighted
-          ? "border-zinc-700 bg-zinc-800/80 hover:border-zinc-500"
-          : "border-zinc-800 bg-zinc-950/70 hover:border-zinc-700"
+          ? "border-zinc-700 bg-zinc-800/80"
+          : "border-zinc-800 bg-zinc-950/70"
       }`}
     >
       <div className="flex items-center justify-between gap-3">
@@ -104,9 +134,12 @@ function SystemNode({
   );
 }
 
-function Connector() {
+function Connector({ delay }: { delay: string }) {
   return (
-    <div className="relative z-10 flex h-6 items-center justify-center">
+    <div
+      style={{ animationDelay: delay }}
+      className="system-connector relative z-10 flex h-6 items-center justify-center"
+    >
       <div className="h-full w-px bg-zinc-800" />
     </div>
   );

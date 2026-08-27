@@ -17,8 +17,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative z-50 mx-auto w-full max-w-6xl px-6 py-6 lg:px-8">
-      <div className="flex items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full border-b border-zinc-900/80 bg-zinc-950/80 backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
         {/* Logo */}
         <a
           href="/"
@@ -28,7 +28,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 text-sm text-zinc-400 sm:flex">
+        <div className="hidden translate-x-[5px] items-center gap-8 text-sm text-zinc-400 sm:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -60,7 +60,7 @@ export default function Navbar() {
       >
         <div className="overflow-hidden">
           <div className="mt-6 border-t border-zinc-800 pt-6">
-            <div className="flex flex-col gap-5">
+            <div className="flex translate-x-[30px] flex-col gap-5">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
