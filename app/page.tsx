@@ -1,6 +1,10 @@
 import Navbar from "@/components/Navbar";
 import SystemVisualization from "@/components/SystemVisualization";
-
+import Projects from "@/components/Projects";
+import EngineeringGraph from "@/components/EngineeringGraph";
+import About from "@/components/About";
+import Thinking from "@/components/Thinking";
+import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-50">
@@ -47,6 +51,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Projects />
+      <EngineeringGraph />
+      <About />
+      <Thinking />
+      <Contact />
     </main>
   );
 }

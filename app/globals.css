@@ -22,7 +22,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, var(--font-geist-sans);
+  letter-spacing: -0.01em;
 }
 
 .system-packet {
@@ -128,4 +129,63 @@ body {
     top: 420px;
     opacity: 0;
   }
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-hexagon {
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+}
+.graph-node-glow {
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  transition: opacity 500ms ease;
+}
+
+.graph-node::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from 20deg,
+    transparent 0deg,
+    transparent 45deg,
+    rgba(255, 255, 255, 0.45) 65deg,
+    transparent 90deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  padding: 1px;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.graph-node:hover::after {
+  opacity: 1;
+}
+::selection {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
 }

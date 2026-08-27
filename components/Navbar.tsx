@@ -20,7 +20,10 @@ export default function Navbar() {
     <nav className="relative z-50 mx-auto w-full max-w-6xl px-6 py-6 lg:px-8">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="font-serif text-2xl font-medium tracking-tight">
+        <a
+          href="/"
+          className="font-[var(--font-quintessential)] text-3xl font-semibold tracking-tight"
+        >
           Sanjit
         </a>
 
@@ -43,7 +46,8 @@ export default function Navbar() {
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((open) => !open)}
-          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-50 sm:hidden">
+          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-50 sm:hidden"
+        >
           <span className="text-lg">{isOpen ? "×" : "☰"}</span>
         </button>
       </div>
