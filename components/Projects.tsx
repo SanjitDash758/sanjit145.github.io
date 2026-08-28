@@ -1,3 +1,5 @@
+
+
 const projects = [
   {
     number: "01",
@@ -43,7 +45,7 @@ export default function Projects() {
           </p>
 
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
-            Projects I'm building to explore
+            Projects I&apos;m building to explore
             <span className="block text-zinc-500">
               backend systems, automation, and AI agents.
             </span>

@@ -43,7 +43,7 @@ export default function Home() {
                 href="#contact"
                 className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-800 px-6 text-sm font-medium text-zinc-200 transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-900"
               >
-                Let's Talk
+                Let&apos;s Talk
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>

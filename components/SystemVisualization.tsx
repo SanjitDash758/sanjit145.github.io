@@ -1,5 +1,7 @@
 "use client";
+
 import type { CSSProperties } from "react";
+
 export default function SystemVisualization() {
   return (
     <div className="w-full max-w-lg [perspective:1200px]">
@@ -86,7 +88,6 @@ export default function SystemVisualization() {
           />
         </div>
 
-        {/* Animated system packets */}
         {/* Animated system signal */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
           <span className="system-signal" />
@@ -114,7 +115,7 @@ function SystemNode({
       style={
         {
           animationDelay: delay,
-          "--active-delay": activeDelay ?? "0ms",
+          "--active-delay": activeDelay,
         } as CSSProperties
       }
       className={`system-node relative z-10 w-full rounded-xl border px-4 py-3 ${

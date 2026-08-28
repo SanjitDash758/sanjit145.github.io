@@ -7,7 +7,7 @@ export default function Contact() {
       <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="flex flex-col items-center text-center">
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-            Let's Build
+            Let&apos;s Build
           </p>
 
           <h2 className="max-w-2xl text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl lg:text-6xl">
@@ -18,7 +18,7 @@ export default function Contact() {
           </h2>
 
           <p className="mt-6 max-w-xl text-sm leading-7 text-zinc-500 sm:text-base">
-            I'm interested in backend systems, automation, and
+            I&apos;m interested in backend systems, automation, and
             intelligent software.
           </p>
 
